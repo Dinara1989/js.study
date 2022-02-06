@@ -11,7 +11,7 @@ const soldier = {
 const john = {
     health: 100
 };
-//Присваиваем прототипу свойства объекта
+//Присваиваем прототипу свойства объекта первый вариант
 Object.setPrototypeOf(john, soldier);
 
 john.sayHello();
