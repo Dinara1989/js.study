@@ -59,13 +59,23 @@ const personalMovieDB = {
 при помощи метода forEach вывести в консоль сообщения в таком виде:
 "Любимый жанр #(номер по порядку, начиная с 1) - это (название из массива)"*/
     writeYourGenres: function() {
-        for (let i = 1; i <= 3; i++) {
-            let genre = prompt(`Ваш любимый жанр под номером ${i}`);
-            if (genre === '' || null) {
+        for (let i = 1; i <= 2; i++) {
+            // let genre = prompt(`Ваш любимый жанр под номером ${i}`);
+            // if (genre === '' || genre == null) {
+            //     console.log('Вы ввели некорректные данные');
+            //     i--;
+            // } else {
+            // personalMovieDB.genres[i - 1] = genre;
+            // }
+            //Второй вариант решения:
+            let genres = prompt(`Введите ваши любимые жанры через запятую`).toLowerCase();
+            if (genres === '' || genres == null) {
                 console.log('Вы ввели некорректные данные');
                 i--;
             } else {
-            personalMovieDB.genres[i - 1] = genre;
+            //Разделяем строку по запятым, чтоб разделить жанры
+                personalMovieDB.genres = genres.split(', ');
+                // personalMovieDB.genres.sort();  Эта строка отсортирует
             }
         }
         personalMovieDB.genres.forEach((item, i) => {
