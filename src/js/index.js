@@ -2,8 +2,15 @@
 //при перволм обращении обязанельно нужно писать .document
 //обращение к элементу по его id (уникальный на странице)
 const box = document.getElementById('box');
+console.log(box);
 
-const btns = document.getElementsByTagName('button');
+//При обращении к тегу buttons, мы получим псевдомассив со всеми кнопками (HTML collection)
+// const btns = document.getElementsByTagName('button');
+// console.log(btns);
+
+//Как обратиться к конкретной кнопке на странице? Учитывая то, что btns передаст нам псевдомассив, можно использовать свойства массива
+const btns = document.getElementsByTagName('button')[1]; //только вторая кнопка
+console.log(btns[1]);//или можно указать номер элемента в массиве так
 
 
 // const personalMovieDB = {
