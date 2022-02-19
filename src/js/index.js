@@ -1,51 +1,10 @@
 'use strict';
+//при перволм обращении обязанельно нужно писать .document
+//обращение к элементу по его id (уникальный на странице)
+const box = document.getElementById('box');
 
-// Динамическая типизация
-// 1.
-console.log(typeof(String(null)));
-console.log(typeof(String(4)));
-// Вернет String
+const btns = document.getElementsByTagName('button');
 
-// 2.Конкатенация (что-то складываем со строкой. При сложении со строкой всегда получается строка)
-console.log(typeof(5 + ''));
-// Вернет String
-
-const num = 5;
-// Старый вариант кода
-console.log("https://vk.com/catalog/" + num);
-
-// Передача значений CCS через JS
-const fontSize = 26 + 'px';
-
-// Как что-то превратить в число
-// 1.
-console.log(typeof(Number('4')));
-// 2.
-console.log(typeof(+'5'));
-// 3.
-console.log(typeof(parseInt("15px", 10)));
-
-// Реальное применения (преобразование ответов пользователя)
-let answ = +prompt("Hello", "");
-
-// Преобразование To boolean
-// 1.
-// пустота  - всегда ложь - 0, '', null, undefined, NaN;
-let switcher = null;
-if(switcher){
-    console.log('Working...');
-}
-switcher = 1;
-
-if(switcher){
-    console.log('Working...');
-}
-
-// 2.
-console.log(typeof(Boolean('4')));
-
-// 3.
-console.log(typeof(!!"44444"));
 
 // const personalMovieDB = {
 //     count: 0,
