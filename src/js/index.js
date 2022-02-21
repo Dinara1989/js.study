@@ -1,16 +1,35 @@
 'use strict';
-//при перволм обращении обязанельно нужно писать .document
-//обращение к элементу по его id (уникальный на странице)
-const box = document.getElementById('box');
-console.log(box);
+//Действия с элементами на странице
 
-//При обращении к тегу buttons, мы получим псевдомассив со всеми кнопками (HTML collection)
-// const btns = document.getElementsByTagName('button');
-// console.log(btns);
+//В консоли будут объекты, поэтому можно будет обратиться к их свойствам
+const box = document.getElementById('box'),
+    btns = document.getElementsByTagName('button'),
+    circles = document.getElementsByClassName('circle'),
+    hearts = document.querySelectorAll('.heart'),
+    oneHeart = document.querySelector('heart');
 
-//Как обратиться к конкретной кнопке на странице? Учитывая то, что btns передаст нам псевдомассив, можно использовать свойства массива
-const btns = document.getElementsByTagName('button')[1]; //только вторая кнопка
-console.log(btns[1]);//или можно указать номер элемента в массиве так
+//Обратиться к стилям объекта box и поменять их
+//Эти стили будут важнее тех, что прописсаны в файле css
+box.style.backgroundColor = 'blue';
+box.style.width = '500px'; //тк значение передается цифрами+буквами, нужно обернуть в кавычки - это строка
+//как записать все стили одной строкой для этого элемента. Используем cssText
+// box.style.cssText = 'background-color: blue; width: 500px';
+//Если информация внутри меняется, то есть такая форма записи
+// box.style.cssText = `background-color: blue; width: ${num}px`;
+
+//меняем стиль второй кнопки
+btns[1].style.borderRadius = '100%';
+//тк мы обращаемся к псевдомассиву, обязательно нужно указывать номер элемента
+//потому что применять стили ко всему массиву нельзя
+circles[0].style.backgroundColor = 'red';
+
+//Если над несколькими элементами нужно произвессти действие
+//1
+for(let i = 0; i < hearts.length; i++) {
+    hearts[i].style.backgroundColor = 'blue';
+}
+
+
 
 
 // const personalMovieDB = {
