@@ -49,8 +49,29 @@ document.body.append(div); //куда именно его вставить(в к
 const wrapper = document.querySelector('.wrapper');
 // wrapper.prepend(div); //вставит элемент в начало
 
+wrapper.appendChild(div);//Поместим объект в конец родителя
 //3
-hearts[0].before(div);
+// hearts[0].before(div);//ставим перед первым сердечком
+// hearts[0].after(div);//ставим после первого сердечка
+
+//Удалить объекты
+// circles[0].remove();
+
+//Один элемент заменить другим
+// hearts[0].replaceWith(circles[0]);
+
+//Добавление HTML через JS
+//1 Можно добавлять HTML структуру, а не только текст
+div.innerHTML = "<h1>Hello World!</h1>";
+//2 Работает ТОЛЬКО с текстом
+// div.textContent = "Hello!";
+
+//Как вставить кусок html-кода в конкретное место
+//insertAdjacentHTML - ключевое слово
+//afterbegin - перед началом
+//afterend/beforeend/beforebegin
+div.insertAdjacentHTML('afterbegin', '<h2>Hello</h2>');
+
 
 
 
