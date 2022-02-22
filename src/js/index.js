@@ -25,9 +25,32 @@ circles[0].style.backgroundColor = 'red';
 
 //Если над несколькими элементами нужно произвессти действие
 //1
-for(let i = 0; i < hearts.length; i++) {
-    hearts[i].style.backgroundColor = 'blue';
-}
+// for(let i = 0; i < hearts.length; i++) {
+//     hearts[i].style.backgroundColor = 'blue';
+// }
+
+//2 Более современный
+hearts.forEach(item => {
+    item.style.backgroundColor = 'yellow';
+});
+
+//Методы для работы со страницами
+//Создать тег (он появится только в js)
+const div = document.createElement('div');
+// const text = document.createTextNode('I am here');
+
+//Добавить элемент на страницу
+//1
+div.classList.add('black');
+document.body.append(div); //куда именно его вставить(в конец body)
+//2 
+// document.querySelector('.wrapper').append(div);
+
+const wrapper = document.querySelector('.wrapper');
+// wrapper.prepend(div); //вставит элемент в начало
+
+//3
+hearts[0].before(div);
 
 
 
