@@ -8,7 +8,7 @@
 //такой код используется только в маленьких проектах, лучше не использовать
 
 //Лучше использовать свойства DOM-дерева для событий
-    const btn = document.querySelector('button');//выбираем кнопки на странице
+    //const btn = document.querySelector('button');//выбираем кнопки на странице
 
 //Хорошо, только если супермаленький проект, но лучше не использовать 
     // btn.onclick = function() {
@@ -16,12 +16,42 @@
     // }
 
 //Лучший вариант:
-btn.addEventListener('click', () => {
-    alert('Click');
-});
+// btn.addEventListener('click', () => {
+//     alert('Click');
+// });
 
 //События выполняются по очереди.
 //mouseenter - отслеживает наведение мышки
+
+// btn.addEventListener('mouseenter', (e) => { //e или event прописывается обязательно, после можно передать свои аргументы через запятую
+//     console.log(e.target);
+//     e.target.remove(); //удалит эту кнопку при наведении
+// });
+
+//удалить обработчик события
+const deleteElement = (e) => {
+    e.target.remove();
+};
+// btn.addEventListener('click', deleteElement);
+
+//Как отменить стандартное поведение в браузере.
+const link = document.querySelector('a');
+
+link.addEventListener('click', (event) => {
+    event.preventDefault();//По ссыке больше не перейдет
+    console.log(event.target);//при клике будет каждый раз выводить в консоль
+});
+
+//Как повесить обработчики на несколько кнопок сразу
+const btns = document.querySelectorAll('button');
+
+btns.forEach(btn => {
+    btn.addEventListener('click', deleteElement);
+});
+
+
+
+
 
 
 // const personalMovieDB = {
