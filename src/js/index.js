@@ -1,79 +1,27 @@
 'use strict';
-//Действия с элементами на странице
+//События и их обработчики
 
-//В консоли будут объекты, поэтому можно будет обратиться к их свойствам
-const box = document.getElementById('box'),
-    btns = document.getElementsByTagName('button'),
-    circles = document.getElementsByClassName('circle'),
-    hearts = document.querySelectorAll('.heart'),
-    oneHeart = document.querySelector('heart');
+/*Чтобы использовать событие, мы должны назначить обработчик событий.
+Обработчик события  - это функция, которая срабатывает, как только событие произошло.
+*/
+//в html <button onclick="alert('Click')" id="btn">Нажми меня</button>
+//такой код используется только в маленьких проектах, лучше не использовать
 
-//Обратиться к стилям объекта box и поменять их
-//Эти стили будут важнее тех, что прописсаны в файле css
-box.style.backgroundColor = 'blue';
-box.style.width = '500px'; //тк значение передается цифрами+буквами, нужно обернуть в кавычки - это строка
-//как записать все стили одной строкой для этого элемента. Используем cssText
-// box.style.cssText = 'background-color: blue; width: 500px';
-//Если информация внутри меняется, то есть такая форма записи
-// box.style.cssText = `background-color: blue; width: ${num}px`;
+//Лучше использовать свойства DOM-дерева для событий
+    const btn = document.querySelector('button');//выбираем кнопки на странице
 
-//меняем стиль второй кнопки
-btns[1].style.borderRadius = '100%';
-//тк мы обращаемся к псевдомассиву, обязательно нужно указывать номер элемента
-//потому что применять стили ко всему массиву нельзя
-circles[0].style.backgroundColor = 'red';
+//Хорошо, только если супермаленький проект, но лучше не использовать 
+    // btn.onclick = function() {
+    //     alert();
+    // }
 
-//Если над несколькими элементами нужно произвессти действие
-//1
-// for(let i = 0; i < hearts.length; i++) {
-//     hearts[i].style.backgroundColor = 'blue';
-// }
-
-//2 Более современный
-hearts.forEach(item => {
-    item.style.backgroundColor = 'yellow';
+//Лучший вариант:
+btn.addEventListener('click', () => {
+    alert('Click');
 });
 
-//Методы для работы со страницами
-//Создать тег (он появится только в js)
-const div = document.createElement('div');
-// const text = document.createTextNode('I am here');
-
-//Добавить элемент на страницу
-//1
-div.classList.add('black');
-document.body.append(div); //куда именно его вставить(в конец body)
-//2 
-// document.querySelector('.wrapper').append(div);
-
-const wrapper = document.querySelector('.wrapper');
-// wrapper.prepend(div); //вставит элемент в начало
-
-wrapper.appendChild(div);//Поместим объект в конец родителя
-//3
-// hearts[0].before(div);//ставим перед первым сердечком
-// hearts[0].after(div);//ставим после первого сердечка
-
-//Удалить объекты
-// circles[0].remove();
-
-//Один элемент заменить другим
-// hearts[0].replaceWith(circles[0]);
-
-//Добавление HTML через JS
-//1 Можно добавлять HTML структуру, а не только текст
-div.innerHTML = "<h1>Hello World!</h1>";
-//2 Работает ТОЛЬКО с текстом
-// div.textContent = "Hello!";
-
-//Как вставить кусок html-кода в конкретное место
-//insertAdjacentHTML - ключевое слово
-//afterbegin - перед началом
-//afterend/beforeend/beforebegin
-div.insertAdjacentHTML('afterbegin', '<h2>Hello</h2>');
-
-
-
+//События выполняются по очереди.
+//mouseenter - отслеживает наведение мышки
 
 
 // const personalMovieDB = {
